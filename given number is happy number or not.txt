@@ -1,0 +1,24 @@
+#given number is happy number or not
+def happynumber(num):
+    if num==1 or num==7:
+        return True
+    else:
+        total,n = num, num
+        while total>9:
+            total = 0
+            while n>0:
+                rem=n%10
+                total=total+rem*rem
+                n //=10
+            if total == 1:
+                return True
+            n = total
+        if total == 7:
+            return True
+        return False
+
+num = int(input("Enter a number: "))
+if happynumber(num):
+    print(num, "Happy Number")
+else:
+    print("Not a happy number")
